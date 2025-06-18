@@ -2,7 +2,7 @@ import send from "../assets/img/Send.svg";
 import ava from "../assets/img/avatar.jpg";
 import { IContact, IUser } from "../types/user";
 import { useEffect, useState } from "react";
-import { io, Socket } from "socket.io-client";
+import io from "socket.io-client";
 import Chatlist from "../components/Chatlist";
 import { apiGetMessages } from "../services/message";
 import { IMessage } from "../types/message";
@@ -22,7 +22,7 @@ export interface ChatItem {
 }
 
 const Chatpage = () => {
-  const [socket, setSocket] = useState<Socket | null>(null);
+  const [socket, setSocket] = useState<ReturnType<typeof io> | null>(null);
   const [message, setMessage] = useState<string>("");
   const [listMessages, setListMessages] = useState<IMessage[]>([]);
   const [contacts, setContacts] = useState<IContact[]>([]);
@@ -96,7 +96,7 @@ const Chatpage = () => {
 
     newSocket.on("connect", () => {});
 
-    newSocket.on("newMessage", (msg) => {
+    newSocket.on("newMessage", (msg: IMessage) => {
       setListMessages((prev) => [...prev, msg]);
       fetchContacts();
     });

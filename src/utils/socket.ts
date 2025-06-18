@@ -1,8 +1,10 @@
-import { io } from "socket.io-client";
+import io from "socket.io-client";
 
-// Đọc từ biến môi trường
 const socket = io(import.meta.env.VITE_SOCKET_URL, {
-  withCredentials: true,
+  // ❌ withCredentials: true, ← Không cần và sai type
+  auth: {
+    token: localStorage.getItem("access_token"),
+  },
 });
 
 export default socket;
