@@ -1,5 +1,5 @@
 import ava from "../assets/img/avatar.jpg";
-import close from "../assets/img/close.svg";
+import close from "../assets/img/Close.svg";
 import closeblack from "../assets/img/CloseBlack.svg";
 import React, { useEffect, useState } from "react";
 import { apiCreatePost, apiUpdatePost } from "@/services/post";
