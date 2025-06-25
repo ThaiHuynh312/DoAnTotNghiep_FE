@@ -129,7 +129,7 @@ const Chatpage = () => {
                       {userContacts.username}
                     </span>
                     <div className="text-gray-500 text-xs">
-                      {userContacts.role === "tutor" ? "Giáo sư" : "Học sinh"}
+                      {userContacts.role === "tutor" ? "Gia sư" : "Học sinh"}
                     </div>
                   </div>
                 </div>
